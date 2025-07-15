@@ -21,12 +21,8 @@
 
 [Problem]
   type = OpenMCCellAverageProblem
-  output = unrelaxed_tally_std_dev
   scaling = 100.0
 
-  tally_type = mesh
-  mesh_template = ../tokamak.e
-  tally_score = 'heating_local H3_production'
   source_strength = 2e18
 
   cell_level = 0
@@ -34,10 +30,18 @@
 
   # this is a low number of particles; you will want to increase in order to obtain
   # high-quality results
-  first_iteration_particles = 100
-  relaxation = dufek_gudowski
+  particles = 100
 
   skinner = moab
+
+  [Tallies]
+    [mesh]
+      type = MeshTally
+      score = 'heating_local H3_production'
+      mesh_template = ../tokamak.e
+      output = unrelaxed_tally_std_dev
+    []
+  []
 []
 
 [UserObjects]
