@@ -3,3 +3,6 @@
 *.nek5000
 *.log
 *.csv
+*.txt
+*.e
+*.h5m
